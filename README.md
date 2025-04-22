@@ -23,7 +23,7 @@ This project is a user-friendly personal budget tracker app designed to help use
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/budget-tracker-app.git
+   https://github.com/ST10294145/Money-Lock.git
    ```
 2. Open the project in Android Studio.
 3. Build and run the app on an emulator or Android device.
