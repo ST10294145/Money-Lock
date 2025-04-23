@@ -1,4 +1,4 @@
-# Money Lock
+# Money Lock Budget Tracking App 
 ## Personal Budget Tracker App
 
 ## Overview
