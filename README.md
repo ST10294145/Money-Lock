@@ -49,10 +49,6 @@ Watch the [video demonstration](https://www.youtube.com/your-video-link) showcas
 
 Feel free to fork the repository and submit pull requests. For major changes, please open an issue first to discuss what you would like to change.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## Contact
 
 For questions or feedback, please contact [your-email@example.com](mailto:your-email@example.com).
