@@ -1,4 +1,4 @@
-# Money Lock
+# Money Lock Budget Tracking App 
 ## Personal Budget Tracker App
 
 ## Overview
@@ -48,10 +48,6 @@ Watch the [video demonstration](https://www.youtube.com/your-video-link) showcas
 ## Contribution
 
 Feel free to fork the repository and submit pull requests. For major changes, please open an issue first to discuss what you would like to change.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contact
 
