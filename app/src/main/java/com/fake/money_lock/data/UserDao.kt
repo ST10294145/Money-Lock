@@ -15,8 +15,8 @@ interface UserDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addUser(user: User)
 
-    // Retrieve all users from the database, ordered by their ID in ascending order
+    // Retrieve all users from the database, ordered by their user_id in ascending order
     // Returns LiveData so changes can be observed in real-time
-    @Query("SELECT * FROM user_table ORDER BY id ASC")
+    @Query("SELECT * FROM user_table ORDER BY user_id ASC")
     fun readAllData(): LiveData<List<User>>
 }

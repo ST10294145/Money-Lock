@@ -7,15 +7,10 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "user_table")
 data class User(
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "user_id") // Custom column name
+    @ColumnInfo(name = "user_id")
     val id: Int, // Account ID
 
-    @ColumnInfo(name = "user_name") // Custom column name
-    val name: String, // User name
-
-    @ColumnInfo(name = "user_email") // Custom column name
-    val email: String, // User email address
-
-    @ColumnInfo(name = "user_password") // Custom column name
+    val name: String,    // User name
+    val email: String,   // User email address
     val password: String // User password
 )
