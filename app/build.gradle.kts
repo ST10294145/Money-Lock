@@ -1,7 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("org.jetbrains.kotlin.kapt") // ✅ Needed for Room
+    id("org.jetbrains.kotlin.kapt")
+    id("org.jetbrains.kotlin.plugin.compose") // ✅ Needed for Compose with Kotlin 2.0
 }
 
 android {
@@ -39,6 +40,10 @@ android {
 
     buildFeatures {
         compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.6.7" // ✅ Use the latest stable compose compiler version
     }
 }
 
