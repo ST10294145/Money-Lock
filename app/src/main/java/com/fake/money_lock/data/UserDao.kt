@@ -11,12 +11,14 @@ import androidx.room.Query
 interface UserDao {
 
     // Insert a new user into the database
-    // If there's a conflict (e.g. same primary key), ignore the new data
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addUser(user: User)
 
-    // Retrieve all users from the database, ordered by their user_id in ascending order
-    // Returns LiveData so changes can be observed in real-time
+    // Retrieve all users from the database
     @Query("SELECT * FROM user_table ORDER BY user_id ASC")
     fun readAllData(): LiveData<List<User>>
+
+    // Retrieve a single user by email
+    @Query("SELECT * FROM user_table WHERE email = :email LIMIT 1")
+    suspend fun getUserByEmail(email: String): User?
 }

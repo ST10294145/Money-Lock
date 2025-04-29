@@ -5,8 +5,15 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import com.fake.money_lock.data.User
+import com.fake.money_lock.data.UserDatabase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.register_page)
@@ -16,6 +23,8 @@ class MainActivity : AppCompatActivity() {
         val passwordInput = findViewById<EditText>(R.id.etPassword)
         val confirmPasswordInput = findViewById<EditText>(R.id.etConfirmPassword)
         val registerButton = findViewById<Button>(R.id.btnRegister)
+
+        val userDao = UserDatabase.getDatabase(applicationContext).userDao()
 
         registerButton.setOnClickListener {
             val name = nameInput.text.toString().trim()
@@ -28,8 +37,30 @@ class MainActivity : AppCompatActivity() {
             } else if (password != confirmPassword) {
                 Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show()
             } else {
-                // Proceed with registration logic here
-                Toast.makeText(this, "Registration successful!", Toast.LENGTH_SHORT).show()
+                lifecycleScope.launch(Dispatchers.IO) {
+                    val existingUser = userDao.getUserByEmail(email)
+                    if (existingUser != null) {
+                        withContext(Dispatchers.Main) {
+                            Toast.makeText(applicationContext, "Email already registered", Toast.LENGTH_SHORT).show()
+                        }
+                    } else {
+                        val newUser = User(
+                            id = 0,
+                            name = name,
+                            email = email,
+                            password = password
+                        )
+                        userDao.addUser(newUser)
+                        withContext(Dispatchers.Main) {
+                            Toast.makeText(applicationContext, "Registration successful!", Toast.LENGTH_SHORT).show()
+                            // Optionally, clear the form fields
+                            nameInput.text.clear()
+                            emailInput.text.clear()
+                            passwordInput.text.clear()
+                            confirmPasswordInput.text.clear()
+                        }
+                    }
+                }
             }
         }
     }
