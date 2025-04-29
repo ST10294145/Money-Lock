@@ -1,50 +1,36 @@
 package com.fake.money_lock
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.fake.money_lock.ui.theme.Money_LockTheme
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            Money_LockTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+        setContentView(R.layout.register_page)
+
+        val nameInput = findViewById<EditText>(R.id.etName)
+        val emailInput = findViewById<EditText>(R.id.etEmail)
+        val passwordInput = findViewById<EditText>(R.id.etPassword)
+        val confirmPasswordInput = findViewById<EditText>(R.id.etConfirmPassword)
+        val registerButton = findViewById<Button>(R.id.btnRegister)
+
+        registerButton.setOnClickListener {
+            val name = nameInput.text.toString().trim()
+            val email = emailInput.text.toString().trim()
+            val password = passwordInput.text.toString()
+            val confirmPassword = confirmPasswordInput.text.toString()
+
+            if (name.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+                Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
+            } else if (password != confirmPassword) {
+                Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show()
+            } else {
+                // Proceed with registration logic here
+                Toast.makeText(this, "Registration successful!", Toast.LENGTH_SHORT).show()
             }
         }
     }
 }
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    Money_LockTheme {
-        Greeting("Android")
-    }
-}
-
-//Test message
-//Second Test message
