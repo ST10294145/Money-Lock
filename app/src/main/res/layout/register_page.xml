@@ -65,7 +65,7 @@
             android:background="@android:drawable/editbox_background_normal"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textColorHint="@android:color/darker_gray"
             android:layout_marginBottom="16dp" />
 
@@ -79,7 +79,7 @@
             android:background="@android:drawable/editbox_background_normal"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textColorHint="@android:color/darker_gray"
             android:layout_marginBottom="16dp" />
 
@@ -93,7 +93,7 @@
             android:background="@android:drawable/editbox_background_normal"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textColorHint="@android:color/darker_gray"
             android:layout_marginBottom="16dp" />
 
@@ -107,7 +107,7 @@
             android:background="@android:drawable/editbox_background_normal"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textColorHint="@android:color/darker_gray"
             android:layout_marginBottom="32dp" />
 
