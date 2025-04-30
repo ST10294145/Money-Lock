@@ -11,31 +11,14 @@
         android:orientation="vertical"
         android:gravity="center_horizontal">
 
-        <!-- App Branding -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="MONEYLOCK"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/black"
+        <!-- Logo Image -->
+        <ImageView
+            android:id="@+id/logoImage"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/img"
+            android:contentDescription="Moneylock Logo"
             android:layout_marginTop="40dp"
-            android:layout_marginBottom="8dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="FINANCE SOLUTIONS"
-            android:textSize="16sp"
-            android:textColor="@android:color/black"
-            android:layout_marginBottom="4dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="BUDGET APP"
-            android:textSize="14sp"
-            android:textColor="@android:color/black"
             android:layout_marginBottom="40dp" />
 
         <!-- Register Heading -->
