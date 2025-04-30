@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.register_page)
+        // ✅ make sure this matches your XML name
 
         val nameInput = findViewById<EditText>(R.id.etName)
         val emailInput = findViewById<EditText>(R.id.etEmail)
@@ -38,26 +39,33 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show()
             } else {
                 lifecycleScope.launch(Dispatchers.IO) {
-                    val existingUser = userDao.getUserByEmail(email)
-                    if (existingUser != null) {
+                    try {
+                        val existingUser = userDao.getUserByEmail(email)
                         withContext(Dispatchers.Main) {
-                            Toast.makeText(applicationContext, "Email already registered", Toast.LENGTH_SHORT).show()
+                            if (existingUser != null) {
+                                Toast.makeText(this@MainActivity, "Email already registered", Toast.LENGTH_SHORT).show()
+                            } else {
+                                val newUser = User(
+                                    id = 0,
+                                    name = name,
+                                    email = email,
+                                    password = password
+                                )
+                                lifecycleScope.launch(Dispatchers.IO) {
+                                    userDao.addUser(newUser)
+                                    withContext(Dispatchers.Main) {
+                                        Toast.makeText(this@MainActivity, "Registration successful!", Toast.LENGTH_SHORT).show()
+                                        nameInput.text.clear()
+                                        emailInput.text.clear()
+                                        passwordInput.text.clear()
+                                        confirmPasswordInput.text.clear()
+                                    }
+                                }
+                            }
                         }
-                    } else {
-                        val newUser = User(
-                            id = 0,
-                            name = name,
-                            email = email,
-                            password = password
-                        )
-                        userDao.addUser(newUser)
+                    } catch (e: Exception) {
                         withContext(Dispatchers.Main) {
-                            Toast.makeText(applicationContext, "Registration successful!", Toast.LENGTH_SHORT).show()
-                            // Optionally, clear the form fields
-                            nameInput.text.clear()
-                            emailInput.text.clear()
-                            passwordInput.text.clear()
-                            confirmPasswordInput.text.clear()
+                            Toast.makeText(this@MainActivity, "An error occurred: ${e.message}", Toast.LENGTH_LONG).show()
                         }
                     }
                 }
