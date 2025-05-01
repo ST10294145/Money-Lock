@@ -55,6 +55,10 @@ dependencies {
 
     // Jetpack Compose (BOM)
     implementation(platform("androidx.compose:compose-bom:2024.04.01"))
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.constraintlayout)
     androidTestImplementation(platform("androidx.compose:compose-bom:2024.04.01"))
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
