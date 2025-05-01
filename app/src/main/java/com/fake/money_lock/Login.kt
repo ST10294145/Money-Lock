@@ -1,7 +1,6 @@
 package com.fake.money_lock
 
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
@@ -10,31 +9,26 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class Login : AppCompatActivity() {
-
-    private lateinit var userId: EditText
-    private lateinit var password: EditText
-    private lateinit var login: Button
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_login)
 
-        // Apply system insets (status bar, navigation bar padding)
+        // Apply system insets
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        // Bind UI elements
-        userId = findViewById(R.id.etLoginEmail)
-        password = findViewById(R.id.etLoginPassword)
-        login = findViewById(R.id.btnLogin)
+        // Match IDs from XML
+        val userId = findViewById<EditText>(R.id.etLoginEmail)
+        val password = findViewById<EditText>(R.id.etLoginPassword)
+        val login = findViewById<Button>(R.id.btnLogin)
 
-        // Handle login button click
+        // Login click listener
         login.setOnClickListener {
-
+            // TODO: Handle login logic here
         }
     }
 }
