@@ -6,19 +6,22 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
-// Data Access Object (DAO) for the User entity
 @Dao
 interface UserDao {
 
-    // Insert a new user into the database
+    // Insert a new user
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addUser(user: User)
 
-    // Retrieve all users from the database
+    // Retrieve all users
     @Query("SELECT * FROM user_table ORDER BY user_id ASC")
     fun readAllData(): LiveData<List<User>>
 
     // Retrieve a single user by email
     @Query("SELECT * FROM user_table WHERE email = :email LIMIT 1")
     suspend fun getUserByEmail(email: String): User?
+
+    // Login using email and password
+    @Query("SELECT * FROM user_table WHERE email = :email AND password = :password LIMIT 1")
+    suspend fun login(email: String, password: String): User?
 }
