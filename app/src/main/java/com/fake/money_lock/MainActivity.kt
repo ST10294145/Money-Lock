@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         val passwordInput = findViewById<EditText>(R.id.etPassword)
         val confirmPasswordInput = findViewById<EditText>(R.id.etConfirmPassword)
         val registerButton = findViewById<Button>(R.id.btnRegister)
+        val loginButton = findViewById<Button>(R.id.btnLogin) // Login button
 
         // Get access to the DAO (Data Access Object) from the Room database
         val userDao = UserDatabase.getDatabase(applicationContext).userDao()
@@ -35,39 +36,28 @@ class MainActivity : AppCompatActivity() {
             val password = passwordInput.text.toString()
             val confirmPassword = confirmPasswordInput.text.toString()
 
-            // Check if any input field is empty
+            // Validate input fields
             if (name.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
                 Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
-            }
-            // Check if password and confirm password fields match
-            else if (password != confirmPassword) {
+            } else if (password != confirmPassword) {
                 Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show()
-            }
-            // Proceed with registration
-            else {
+            } else {
                 lifecycleScope.launch(Dispatchers.IO) {
                     try {
-                        // Check if the email is already registered in the database
                         val existingUser = userDao.getUserByEmail(email)
-
                         withContext(Dispatchers.Main) {
                             if (existingUser != null) {
-                                // If user exists, notify the user
                                 Toast.makeText(this@MainActivity, "Email already registered", Toast.LENGTH_SHORT).show()
                             } else {
-                                // Create a new User object
                                 val newUser = User(
-                                    id = 0, // Room will auto-generate the ID
+                                    id = 0,
                                     name = name,
                                     email = email,
                                     password = password
                                 )
-
-                                // Insert the new user into the database
                                 lifecycleScope.launch(Dispatchers.IO) {
                                     userDao.addUser(newUser)
                                     withContext(Dispatchers.Main) {
-                                        // Notify user of success and clear the input fields
                                         Toast.makeText(this@MainActivity, "Registration successful!", Toast.LENGTH_SHORT).show()
                                         nameInput.text.clear()
                                         emailInput.text.clear()
@@ -78,13 +68,21 @@ class MainActivity : AppCompatActivity() {
                             }
                         }
                     } catch (e: Exception) {
-                        // Handle any unexpected errors and show a message to the user
                         withContext(Dispatchers.Main) {
                             Toast.makeText(this@MainActivity, "An error occurred: ${e.message}", Toast.LENGTH_LONG).show()
                         }
                     }
                 }
             }
+        }
+
+        // Set a click listener on the Login button
+        loginButton.setOnClickListener {
+            Toast.makeText(this, "Navigate to Login Page", Toast.LENGTH_SHORT).show()
+            // You can replace the above line with navigation like below:
+            // val intent = Intent(this, LoginActivity::class.java)
+            // startActivity(intent)
+            // finish()
         }
     }
 }
