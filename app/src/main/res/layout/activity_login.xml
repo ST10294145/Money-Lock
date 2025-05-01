@@ -77,5 +77,15 @@
             android:textColor="@android:color/white"
             android:backgroundTint="#FF0000"
             android:textAllCaps="true" />
+
+        <!-- Register Button -->
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Register"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#FF0000"
+            android:textAllCaps="true" />
     </LinearLayout>
 </ScrollView>
