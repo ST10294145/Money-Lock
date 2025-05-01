@@ -22,3 +22,17 @@
             android:textStyle="bold"
             android:textColor="@android:color/white"
             android:layout_marginBottom="24dp" />
+
+        <!-- Expenses Button -->
+        <Button
+            android:id="@+id/btnExpenses"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="View Expenses"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#FF0000"
+            android:textAllCaps="true"
+            android:layout_marginBottom="24dp" />
+
+    </LinearLayout>
+</ScrollView>
