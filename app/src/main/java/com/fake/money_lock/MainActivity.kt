@@ -1,5 +1,6 @@
 package com.fake.money_lock
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -16,27 +17,23 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.register_page) // Set the UI layout for the registration screen
+        setContentView(R.layout.register_page)
 
-        // Get references to UI elements
         val nameInput = findViewById<EditText>(R.id.etName)
         val emailInput = findViewById<EditText>(R.id.etEmail)
         val passwordInput = findViewById<EditText>(R.id.etPassword)
         val confirmPasswordInput = findViewById<EditText>(R.id.etConfirmPassword)
         val registerButton = findViewById<Button>(R.id.btnRegister)
-        val loginButton = findViewById<Button>(R.id.btnLogin) // Login button
+        val loginButton = findViewById<Button>(R.id.btnLogin)
 
-        // Get access to the DAO (Data Access Object) from the Room database
         val userDao = UserDatabase.getDatabase(applicationContext).userDao()
 
-        // Set a click listener on the Register button
         registerButton.setOnClickListener {
             val name = nameInput.text.toString().trim()
             val email = emailInput.text.toString().trim()
             val password = passwordInput.text.toString()
             val confirmPassword = confirmPasswordInput.text.toString()
 
-            // Validate input fields
             if (name.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
                 Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
             } else if (password != confirmPassword) {
@@ -76,13 +73,9 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // Set a click listener on the Login button
         loginButton.setOnClickListener {
-            Toast.makeText(this, "Navigate to Login Page", Toast.LENGTH_SHORT).show()
-            // You can replace the above line with navigation like below:
-            // val intent = Intent(this, LoginActivity::class.java)
-            // startActivity(intent)
-            // finish()
+            val intent = Intent(this, Login::class.java)
+            startActivity(intent)
         }
     }
 }
