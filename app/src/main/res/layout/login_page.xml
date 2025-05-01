@@ -47,3 +47,11 @@
             android:textStyle="bold"
             android:textColor="@android:color/black"
             android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="To access your account"
+            android:textSize="14sp"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="24dp" />
