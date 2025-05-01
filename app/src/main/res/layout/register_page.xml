@@ -103,5 +103,15 @@
             android:textColor="@android:color/white"
             android:backgroundTint="#FF0000"
             android:textAllCaps="true" />
+
+        <!-- Login Button -->
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Login"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#FF0000"
+            android:textAllCaps="true" />
     </LinearLayout>
 </ScrollView>
