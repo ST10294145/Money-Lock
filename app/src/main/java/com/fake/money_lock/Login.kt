@@ -1,5 +1,6 @@
 package com.fake.money_lock
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -27,18 +28,17 @@ class Login : AppCompatActivity() {
             insets
         }
 
-        // Match IDs from XML
+        // Get views
         val userId = findViewById<EditText>(R.id.etLoginEmail)
         val password = findViewById<EditText>(R.id.etLoginPassword)
         val login = findViewById<Button>(R.id.btnLogin)
 
-        // Login click listener
         login.setOnClickListener {
             val userIdText = userId.text.toString().trim()
             val passwordText = password.text.toString().trim()
 
             if (userIdText.isEmpty() || passwordText.isEmpty()) {
-                Toast.makeText(applicationContext, "Please enter email and password", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Please enter email and password", Toast.LENGTH_SHORT).show()
             } else {
                 val userDao = UserDatabase.getDatabase(applicationContext).userDao()
 
@@ -51,7 +51,10 @@ class Login : AppCompatActivity() {
                         Toast.makeText(applicationContext, "Invalid credentials!", Toast.LENGTH_SHORT).show()
                     } else {
                         Toast.makeText(applicationContext, "Login successful!", Toast.LENGTH_SHORT).show()
-                        // TODO: Navigate to the next screen
+                        val intent = Intent(this@Login, HomeScreen::class.java).apply {
+                            putExtra("name", userEntity.name)
+                        }
+                        startActivity(intent)
                     }
                 }
             }
