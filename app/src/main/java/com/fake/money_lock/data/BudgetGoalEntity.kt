@@ -23,5 +23,8 @@ data class BudgetGoalEntity(
     val savingsGoal: Double,
 
     @ColumnInfo(name = "description")
-    val description: String // Added description field
+    val description: String,
+
+    @ColumnInfo(name = "deadline")
+    val deadline: String? = null // New field for deadline (format: yyyy-MM-dd)
 )
