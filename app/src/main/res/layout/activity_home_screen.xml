@@ -61,6 +61,15 @@
             android:layout_marginBottom="16dp" />
 
         <Button
+            android:id="@+id/btnViewBudgetGoals"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="View Budget Goals"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#673AB7"
+            android:layout_marginBottom="16dp" />
+
+        <Button
             android:id="@+id/btnLogout"
             android:layout_width="match_parent"
             android:layout_height="48dp"
