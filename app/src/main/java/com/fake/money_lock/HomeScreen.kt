@@ -4,19 +4,17 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
+import androidx.activity.ComponentActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class HomeScreen : AppCompatActivity() {
+class HomeScreen : ComponentActivity() {
 
     private lateinit var nameTextView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_home_screen)
+        setContentView(R.layout.activity_home_screen) // Use this for XML-based UI
 
         // Handle window insets
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -41,7 +39,6 @@ class HomeScreen : AppCompatActivity() {
         // View Expenses button
         val viewExpensesButton = findViewById<Button>(R.id.btnViewExpenses)
         viewExpensesButton.setOnClickListener {
-            // Navigate to ViewExpenseActivity
             val intent = Intent(this, ViewExpenseActivity::class.java)
             startActivity(intent)
         }
@@ -57,6 +54,13 @@ class HomeScreen : AppCompatActivity() {
         val accountSettingsButton = findViewById<Button>(R.id.btnAccountSettings)
         accountSettingsButton.setOnClickListener {
             val intent = Intent(this, AccountSettings::class.java)
+            startActivity(intent)
+        }
+
+        // View Budget button
+        val viewBudgetButton = findViewById<Button>(R.id.btnViewBudget)
+        viewBudgetButton.setOnClickListener {
+            val intent = Intent(this, ViewBudget::class.java)
             startActivity(intent)
         }
     }
