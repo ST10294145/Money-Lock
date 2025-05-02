@@ -52,15 +52,6 @@
             android:layout_marginBottom="16dp" />
 
         <Button
-            android:id="@+id/btnCategoryTotals"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:text="Category Totals"
-            android:textColor="@android:color/white"
-            android:backgroundTint="#3F51B5"
-            android:layout_marginBottom="16dp" />
-
-        <Button
             android:id="@+id/btnBudgetGoals"
             android:layout_width="match_parent"
             android:layout_height="48dp"
