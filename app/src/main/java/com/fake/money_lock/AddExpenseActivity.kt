@@ -6,7 +6,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.fake.money_lock.data.Expense
-import com.fake.money_lock.data.UserDatabase
+import com.fake.money_lock.data.ExpenseDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
@@ -41,7 +41,7 @@ class AddExpenseActivity : AppCompatActivity() {
     }
 
     private fun setupCategorySpinner() {
-        val categories = arrayOf("Select Category","Food", "Transport", "Entertainment", "Utilities", "Other")
+        val categories = arrayOf("Select Category", "Food", "Transport", "Entertainment", "Utilities", "Other")
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, categories)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerCategory.adapter = adapter
@@ -95,7 +95,7 @@ class AddExpenseActivity : AppCompatActivity() {
         )
 
         lifecycleScope.launch(Dispatchers.IO) {
-            val db = UserDatabase.getDatabase(applicationContext)
+            val db = ExpenseDatabase.getDatabase(applicationContext)
             db.expenseDao().addExpense(expense)
             runOnUiThread {
                 Toast.makeText(this@AddExpenseActivity, "Expense saved.", Toast.LENGTH_SHORT).show()
