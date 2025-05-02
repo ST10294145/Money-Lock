@@ -1,5 +1,6 @@
 package com.fake.money_lock
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -15,9 +16,11 @@ class BudgetGoals : AppCompatActivity() {
 
     private lateinit var etGoalDescription: EditText
     private lateinit var etGoalAmount: EditText
-    private lateinit var etSavingsGoal: EditText // Added for savings goal
+    private lateinit var etSavingsGoal: EditText
     private lateinit var btnPickDeadline: Button
     private lateinit var btnSaveGoal: Button
+
+    private var selectedDeadline: String? = null
 
     private val viewModel: BudgetGoalViewModel by viewModels()
 
@@ -28,23 +31,43 @@ class BudgetGoals : AppCompatActivity() {
         // Initialize views
         etGoalDescription = findViewById(R.id.etGoalDescription)
         etGoalAmount = findViewById(R.id.etGoalAmount)
-        etSavingsGoal = findViewById(R.id.etSavingsGoal) // Initialize savings goal input
+        etSavingsGoal = findViewById(R.id.etSavingsGoal)
         btnPickDeadline = findViewById(R.id.btnPickDeadline)
         btnSaveGoal = findViewById(R.id.btnSaveGoal)
 
         val userId = getLoggedInUserId()
         val currentMonth = getCurrentMonthString()
 
-        // Observe and load existing budget goal for this user/month
+        // Observe and load existing budget goal
         viewModel.getGoalForUserAndMonth(userId, currentMonth).observe(this) { goal ->
             goal?.let {
-                etGoalDescription.setText(it.description) // Populate description
-                etGoalAmount.setText(it.monthlyBudget.toString()) // Populate monthly budget
-                etSavingsGoal.setText(it.savingsGoal.toString()) // Populate savings goal
+                etGoalDescription.setText(it.description)
+                etGoalAmount.setText(it.monthlyBudget.toString())
+                etSavingsGoal.setText(it.savingsGoal.toString())
+                selectedDeadline = it.deadline
+                btnPickDeadline.text = "Deadline: ${selectedDeadline ?: "Pick Date"}"
             }
         }
 
-        // Save or update goal
+        // Deadline picker
+        btnPickDeadline.setOnClickListener {
+            val calendar = Calendar.getInstance()
+            val datePicker = DatePickerDialog(
+                this,
+                { _, year, month, dayOfMonth ->
+                    val pickedDate = Calendar.getInstance()
+                    pickedDate.set(year, month, dayOfMonth)
+                    selectedDeadline = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(pickedDate.time)
+                    btnPickDeadline.text = "Deadline: $selectedDeadline"
+                },
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH)
+            )
+            datePicker.show()
+        }
+
+        // Save button logic
         btnSaveGoal.setOnClickListener {
             val description = etGoalDescription.text.toString()
             val goalAmount = etGoalAmount.text.toString().toDoubleOrNull()
@@ -60,16 +83,12 @@ class BudgetGoals : AppCompatActivity() {
                 month = currentMonth,
                 description = description,
                 monthlyBudget = goalAmount,
-                savingsGoal = savingsGoal // Add savingsGoal here
+                savingsGoal = savingsGoal,
+                deadline = selectedDeadline
             )
 
             viewModel.setOrUpdateGoal(goal)
             Toast.makeText(this, "Goal saved", Toast.LENGTH_SHORT).show()
-        }
-
-        // Deadline Picker logic
-        btnPickDeadline.setOnClickListener {
-            // Implement your deadline picker logic here (e.g., show DatePickerDialog)
         }
     }
 
@@ -78,7 +97,7 @@ class BudgetGoals : AppCompatActivity() {
     }
 
     private fun getLoggedInUserId(): Int {
-        // Replace this with actual login logic later
+        // Replace this with actual authentication logic later
         return 1
     }
 }
