@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="#1B1F23"
+    tools:context=".BudgetGoals">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set Budget Goals"
+        android:textColor="@android:color/white"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Goal Description Input -->
+    <EditText
+        android:id="@+id/etGoalDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Goal Description"
+        android:textColor="@android:color/white"
+        android:textColorHint="#B0B0B0"
+        android:background="@android:drawable/editbox_background"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Goal Amount Input -->
+    <EditText
+        android:id="@+id/etGoalAmount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Amount"
+        android:inputType="numberDecimal"
+        android:textColor="@android:color/white"
+        android:textColorHint="#B0B0B0"
+        android:background="@android:drawable/editbox_background"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/etGoalDescription"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Date Button to Pick Deadline -->
+    <Button
+        android:id="@+id/btnPickDeadline"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Select Deadline"
+        android:textColor="@android:color/white"
+        android:backgroundTint="#3F51B5"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/etGoalAmount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Save Goal Button -->
+    <Button
+        android:id="@+id/btnSaveGoal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Save Goal"
+        android:textColor="@android:color/white"
+        android:backgroundTint="#4CAF50"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/btnPickDeadline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
