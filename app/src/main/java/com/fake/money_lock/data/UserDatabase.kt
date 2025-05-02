@@ -5,12 +5,16 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-// Add Expense entity and bump version to 2
-@Database(entities = [User::class, Expense::class], version = 2, exportSchema = false)
+@Database(
+    entities = [User::class, Expense::class, BudgetGoalEntity::class],  // Include BudgetGoalEntity
+    version = 3, // Bump the version if you're modifying schema
+    exportSchema = false
+)
 abstract class UserDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao
-    abstract fun expenseDao(): ExpenseDao  // New DAO for managing expenses
+    abstract fun expenseDao(): ExpenseDao
+    abstract fun budgetGoalDao(): BudgetGoalDao  // Add DAO for budget goals
 
     companion object {
         @Volatile
