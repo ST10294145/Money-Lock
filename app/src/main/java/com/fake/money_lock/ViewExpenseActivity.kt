@@ -1,6 +1,7 @@
 package com.fake.money_lock
 
 import android.os.Bundle
+import android.view.View // Add this import
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -11,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.fake.money_lock.adapters.ExpenseAdapter
 import com.fake.money_lock.data.ExpenseViewModel
 import com.fake.money_lock.databinding.ActivityViewExpenseBinding
-
 
 class ViewExpenseActivity : AppCompatActivity() {
 
