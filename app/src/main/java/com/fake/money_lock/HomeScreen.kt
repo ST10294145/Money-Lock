@@ -46,6 +46,13 @@ class HomeScreen : AppCompatActivity() {
             startActivity(intent)
         }
 
+        // Budget Goals
+        val budgetGoalsButton = findViewById<Button>(R.id.btnBudgetGoals)
+        budgetGoalsButton.setOnClickListener {
+            val intent = Intent(this, BudgetGoals::class.java)
+            startActivity(intent)
+        }
+
         // TODO: Add the other buttons
     }
 }
