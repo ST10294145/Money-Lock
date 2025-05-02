@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Money_Lock"
         tools:targetApi="31">
         <activity
+            android:name=".BudgetGoals"
+            android:exported="false" />
+        <activity
             android:name=".CategoryTotals"
             android:exported="false" />
         <activity
