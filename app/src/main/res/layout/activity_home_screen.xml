@@ -61,7 +61,7 @@
             android:layout_marginBottom="16dp" />
 
         <Button
-            android:id="@+id/btnViewBudgetGoals"
+            android:id="@+id/btnViewBudget"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:text="View Budget Goals"
