@@ -24,4 +24,8 @@ interface UserDao {
     // Login using email and password
     @Query("SELECT * FROM user_table WHERE email = :email AND password = :password LIMIT 1")
     suspend fun login(email: String, password: String): User?
+
+    // Update a user's profile image path (for updating profile picture)
+    @Query("UPDATE user_table SET profile_image_path = :imagePath WHERE user_id = :userId")
+    suspend fun updateProfileImage(userId: Int, imagePath: String)
 }
