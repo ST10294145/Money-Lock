@@ -53,6 +53,13 @@ class HomeScreen : AppCompatActivity() {
             startActivity(intent)
         }
 
+        // Add the Account Settings button
+        val accountSettingsButton = findViewById<Button>(R.id.btnAccountSettings)
+        accountSettingsButton.setOnClickListener {
+            val intent = Intent(this, AccountSettings::class.java)
+            startActivity(intent)
+        }
+
         // TODO: Add the other buttons
     }
 }
