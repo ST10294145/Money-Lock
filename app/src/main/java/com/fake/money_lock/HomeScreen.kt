@@ -59,7 +59,5 @@ class HomeScreen : AppCompatActivity() {
             val intent = Intent(this, AccountSettings::class.java)
             startActivity(intent)
         }
-
-        // TODO: Add the other buttons
     }
 }
