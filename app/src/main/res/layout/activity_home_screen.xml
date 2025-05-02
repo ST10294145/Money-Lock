@@ -69,14 +69,16 @@
             android:backgroundTint="#673AB7"
             android:layout_marginBottom="16dp" />
 
+        <!-- New Account Settings Button -->
         <Button
-            android:id="@+id/btnLogout"
+            android:id="@+id/btnAccountSettings"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:text="Logout"
+            android:text="Account Settings"
             android:textColor="@android:color/white"
-            android:backgroundTint="#F44336"
+            android:backgroundTint="#03A9F4"
             android:layout_marginBottom="24dp" />
 
     </LinearLayout>
 </ScrollView>
+
