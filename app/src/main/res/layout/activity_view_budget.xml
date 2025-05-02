@@ -1,10 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ViewBudget">
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="#1B1F23">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Budget Title -->
+    <TextView
+        android:id="@+id/tvBudgetTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="My Budget"
+        android:textSize="20sp"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="16dp"
+        android:gravity="center" />
+
+    <!-- Budget Goal -->
+    <TextView
+        android:id="@+id/tvBudgetGoal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Budget Goal: $5000"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Budget Spent -->
+    <TextView
+        android:id="@+id/tvBudgetSpent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Amount Spent: $3000"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Remaining Budget -->
+    <TextView
+        android:id="@+id/tvBudgetRemaining"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Remaining Budget: $2000"
+        android:textColor="@android:color/white" />
+
+</LinearLayout>
