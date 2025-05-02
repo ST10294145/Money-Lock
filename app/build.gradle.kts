@@ -49,42 +49,40 @@ android {
 }
 
 dependencies {
-    // Core
+    // Core dependencies
     implementation("androidx.core:core-ktx:1.13.1")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
-    implementation("androidx.activity:activity-compose:1.9.0")
-
-    // Jetpack Compose (BOM)
-    implementation(platform("androidx.compose:compose-bom:2024.04.01"))
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.8.0")
-    implementation("androidx.activity:activity:1.7.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    androidTestImplementation(platform("androidx.compose:compose-bom:2024.04.01"))
+
+    // Compose dependencies (BOM)
+    implementation(platform("androidx.compose:compose-bom:2024.04.01"))
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
+    androidTestImplementation(platform("androidx.compose:compose-bom:2024.04.01"))
 
     // Room Database
     implementation("androidx.room:room-runtime:2.6.1")
-    kapt("androidx.room:room-compiler:2.6.1")
     implementation("androidx.room:room-ktx:2.6.1")
+    kapt("androidx.room:room-compiler:2.6.1")
     androidTestImplementation("androidx.room:room-testing:2.6.1")
 
-    // Lifecycle dependencies
+    // Lifecycle & ViewModel dependencies
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
 
     // Kotlin Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
-    // Navigation Components
+    // Navigation dependencies
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
 
-    // Testing
+    // Testing dependencies
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
