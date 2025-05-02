@@ -70,24 +70,6 @@
             android:layout_marginBottom="16dp" />
 
         <Button
-            android:id="@+id/btnManageCategories"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:text="Manage Categories"
-            android:textColor="@android:color/white"
-            android:backgroundTint="#03A9F4"
-            android:layout_marginBottom="16dp" />
-
-        <Button
-            android:id="@+id/btnViewReceipts"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:text="View Receipts"
-            android:textColor="@android:color/white"
-            android:backgroundTint="#795548"
-            android:layout_marginBottom="16dp" />
-
-        <Button
             android:id="@+id/btnLogout"
             android:layout_width="match_parent"
             android:layout_height="48dp"
