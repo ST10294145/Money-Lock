@@ -38,6 +38,14 @@ class HomeScreen : AppCompatActivity() {
             startActivity(intent)
         }
 
+        // View Expenses button
+        val viewExpensesButton = findViewById<Button>(R.id.btnViewExpenses)
+        viewExpensesButton.setOnClickListener {
+            // Navigate to ViewExpenseActivity
+            val intent = Intent(this, ViewExpenseActivity::class.java)
+            startActivity(intent)
+        }
+
         // TODO: Add the other buttons
     }
 }
