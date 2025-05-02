@@ -1,6 +1,8 @@
 package com.fake.money_lock
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -23,9 +25,19 @@ class HomeScreen : AppCompatActivity() {
             insets
         }
 
-        // Initialize and set the name
+        // Set welcome text
         nameTextView = findViewById(R.id.tvWelcome)
         val name = intent.getStringExtra("name") ?: "User"
         nameTextView.text = "Welcome, $name"
+
+        // Add Expense button
+        val addExpenseButton = findViewById<Button>(R.id.btnAddExpense)
+        addExpenseButton.setOnClickListener {
+            val intent = Intent(this, AddExpenseActivity::class.java)
+            intent.putExtra("user_id", 1) // Replace with actual user ID if dynamic
+            startActivity(intent)
+        }
+
+        // TODO: Add the other buttons
     }
 }
