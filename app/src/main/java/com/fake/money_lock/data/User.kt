@@ -11,14 +11,20 @@ data class User(
     val id: Int = 0, // Account ID (auto-generated)
 
     @ColumnInfo(name = "name")
-    val name: String,    // User name
+    val name: String, // User name
 
     @ColumnInfo(name = "email")
-    val email: String,   // User email address
+    val email: String, // User email address
 
     @ColumnInfo(name = "password")
     val password: String, // User password
 
     @ColumnInfo(name = "profile_image_path")
-    val profileImagePath: String? = null // Path to the profile image stored locally (internal storage)
+    val profileImagePath: String? = null, // Local path to the profile image
+
+    @ColumnInfo(name = "budget_goal")
+    val budgetGoal: Double = 0.0, // Monthly budget goal
+
+    @ColumnInfo(name = "amount_spent")
+    val amountSpent: Double = 0.0 // Running total of amount spent
 )
