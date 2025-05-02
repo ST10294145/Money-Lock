@@ -41,7 +41,7 @@ class AddExpenseActivity : AppCompatActivity() {
     }
 
     private fun setupCategorySpinner() {
-        val categories = arrayOf("Food", "Transport", "Entertainment", "Utilities", "Other")
+        val categories = arrayOf("Select Category","Food", "Transport", "Entertainment", "Utilities", "Other")
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, categories)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerCategory.adapter = adapter
