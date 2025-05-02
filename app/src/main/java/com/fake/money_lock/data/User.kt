@@ -8,9 +8,17 @@ import androidx.room.PrimaryKey
 data class User(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "user_id")
-    val id: Int, // Account ID
+    val id: Int = 0, // Account ID (auto-generated)
 
+    @ColumnInfo(name = "name")
     val name: String,    // User name
+
+    @ColumnInfo(name = "email")
     val email: String,   // User email address
+
+    @ColumnInfo(name = "password")
     val password: String, // User password
+
+    @ColumnInfo(name = "profile_image_path")
+    val profileImagePath: String? = null // Path to the profile image stored locally (internal storage)
 )
