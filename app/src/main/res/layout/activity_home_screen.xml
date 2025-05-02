@@ -21,27 +21,79 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@android:color/white"
-            android:layout_marginBottom="24dp" />
+            android:layout_marginBottom="16dp" />
 
-        <!--User name apperance-->
+        <!-- User Name -->
         <TextView
             android:id="@+id/etName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textStyle="bold"
+            android:textSize="18sp"
             android:textColor="@android:color/white"
             android:layout_marginBottom="24dp" />
 
-        <!-- Expenses Button -->
+        <!-- Buttons -->
         <Button
-            android:id="@+id/btnExpenses"
+            android:id="@+id/btnAddExpense"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Add Expense"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#4CAF50"
+            android:layout_marginBottom="16dp" />
+
+        <Button
+            android:id="@+id/btnViewExpenses"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:text="View Expenses"
             android:textColor="@android:color/white"
-            android:backgroundTint="#FF0000"
-            android:textAllCaps="true"
+            android:backgroundTint="#FF5722"
+            android:layout_marginBottom="16dp" />
+
+        <Button
+            android:id="@+id/btnCategoryTotals"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Category Totals"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#3F51B5"
+            android:layout_marginBottom="16dp" />
+
+        <Button
+            android:id="@+id/btnSetGoals"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Set Budget Goals"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#9C27B0"
+            android:layout_marginBottom="16dp" />
+
+        <Button
+            android:id="@+id/btnManageCategories"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Manage Categories"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#03A9F4"
+            android:layout_marginBottom="16dp" />
+
+        <Button
+            android:id="@+id/btnViewReceipts"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="View Receipts"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#795548"
+            android:layout_marginBottom="16dp" />
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Logout"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#F44336"
             android:layout_marginBottom="24dp" />
 
     </LinearLayout>
