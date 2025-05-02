@@ -13,19 +13,27 @@ interface UserDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addUser(user: User)
 
-    // Retrieve all users
+    // Get all users
     @Query("SELECT * FROM user_table ORDER BY user_id ASC")
     fun readAllData(): LiveData<List<User>>
 
-    // Retrieve a single user by email
+    // Get user by email
     @Query("SELECT * FROM user_table WHERE email = :email LIMIT 1")
     suspend fun getUserByEmail(email: String): User?
 
-    // Login using email and password
+    // Login: Match email and password
     @Query("SELECT * FROM user_table WHERE email = :email AND password = :password LIMIT 1")
     suspend fun login(email: String, password: String): User?
 
-    // Update a user's profile image path (for updating profile picture)
+    // Update profile image path
     @Query("UPDATE user_table SET profile_image_path = :imagePath WHERE user_id = :userId")
     suspend fun updateProfileImage(userId: Int, imagePath: String)
+
+    // Update budget goal
+    @Query("UPDATE user_table SET budget_goal = :budgetGoal WHERE user_id = :userId")
+    suspend fun updateBudgetGoal(userId: Int, budgetGoal: Double)
+
+    // Update amount spent
+    @Query("UPDATE user_table SET amount_spent = :amountSpent WHERE user_id = :userId")
+    suspend fun updateAmountSpent(userId: Int, amountSpent: Double)
 }
