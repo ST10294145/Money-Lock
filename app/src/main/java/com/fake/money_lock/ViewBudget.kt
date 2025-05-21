@@ -37,26 +37,26 @@ class ViewBudget : AppCompatActivity() {
     }
 
     private fun loadBudgetData() {
-        lifecycleScope.launch {
-            val user = withContext(Dispatchers.IO) {
-                UserDatabase.getDatabase(applicationContext).userDao().readAllData().value?.firstOrNull()
-            }
+        val userDao = UserDatabase.getDatabase(applicationContext).userDao()
+
+        userDao.readAllData().observe(this@ViewBudget) { userList ->
+            val user = userList.firstOrNull()
 
             if (user == null) {
                 showError("User not found")
-                return@launch
+                return@observe
             }
 
             val userId = user.id
             val monthFormat = SimpleDateFormat("yyyy-MM", Locale.getDefault())
             val currentMonth = monthFormat.format(Date())
 
-            // Observe the budget goal
+            // Observe budget goal
             budgetViewModel.getGoalForUserAndMonth(userId, currentMonth).observe(this@ViewBudget) { budgetGoal ->
                 if (budgetGoal == null) {
                     showError("No budget goal found for this month")
                 } else {
-                    // Get all expenses from ExpenseViewModel
+                    // Observe expenses
                     expenseViewModel.expenses.observe(this@ViewBudget) { expenses ->
                         val totalSpent = expenses
                             .filter { it.userId == userId && it.date.startsWith(currentMonth) }
@@ -64,7 +64,7 @@ class ViewBudget : AppCompatActivity() {
 
                         val remaining = budgetGoal.monthlyBudget - totalSpent
 
-                        tvBudgetGoal.text = "Budget Goal: $${budgetGoal.monthlyBudget}"
+                        tvBudgetGoal.text = "Budget Goal: $${"%.2f".format(budgetGoal.monthlyBudget)}"
                         tvBudgetSpent.text = "Amount Spent: $${"%.2f".format(totalSpent)}"
                         tvBudgetRemaining.text = "Remaining Budget: $${"%.2f".format(remaining)}"
                     }
@@ -72,6 +72,7 @@ class ViewBudget : AppCompatActivity() {
             }
         }
     }
+
 
     private fun showError(message: String) {
         tvBudgetGoal.text = message
