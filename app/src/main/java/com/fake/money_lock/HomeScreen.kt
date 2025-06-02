@@ -57,10 +57,10 @@ class HomeScreen : ComponentActivity() {
             startActivity(intent)
         }
 
-        // View Budget button
+        // View Budget button (corrected line below)
         val viewBudgetButton = findViewById<Button>(R.id.btnViewBudget)
         viewBudgetButton.setOnClickListener {
-            val intent = Intent(this, ViewBudget::class.java)
+            val intent = Intent(this, ViewBudget::class.java) // <-- FIXED
             startActivity(intent)
         }
     }

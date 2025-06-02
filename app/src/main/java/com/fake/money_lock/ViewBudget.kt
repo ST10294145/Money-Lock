@@ -6,7 +6,7 @@ import androidx.activity.ComponentActivity
 import androidx.lifecycle.ViewModelProvider
 import com.fake.money_lock.data.BudgetGoalViewModel
 
-class ViewBudgetActivity : ComponentActivity() {
+class ViewBudget : ComponentActivity() {
 
     private lateinit var viewModel: BudgetGoalViewModel
 
