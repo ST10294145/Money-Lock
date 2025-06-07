@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/analyticsLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1B1F23"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+<!-- Title -->
+<TextView
+    android:id="@+id/tvAnalyticsTitle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Expense Analytics"
+    android:textSize="20sp"
+    android:textColor="@android:color/white"
+    android:gravity="center"
+    android:textStyle="bold"
+    android:layout_marginBottom="12dp"/>
+
+<!-- Bar Chart -->
+<com.github.mikephil.charting.charts.BarChart
+    android:id="@+id/barChartCategory"
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+    android:layout_marginBottom="16dp"
+    android:background="#263238"
+    app:chart_descriptionEnabled="false"/>
+
+<!-- Max/Min Goal -->
+<TextView
+    android:id="@+id/tvMaxGoal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Max Budget Goal: R0.00"
+    android:textColor="@android:color/white"
+    android:textSize="16sp"
+    android:layout_marginTop="8dp"/>
+
+<TextView
+    android:id="@+id/tvMinGoal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Min Budget Goal: R0.00"
+    android:textColor="@android:color/white"
+    android:textSize="16sp"
+    android:layout_marginBottom="16dp"/>
+
+</LinearLayout>
