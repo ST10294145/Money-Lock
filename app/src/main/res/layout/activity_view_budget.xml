@@ -122,12 +122,13 @@
                 android:progress="60"
                 android:progressTint="#FF9800"
                 android:backgroundTint="#B0BEC5" />
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
     <!-- Action Button -->
     <Button
-        android:id="@+id/budgetGoals"
+        android:id="@+id/btnAdjustBudget"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Adjust Budget"

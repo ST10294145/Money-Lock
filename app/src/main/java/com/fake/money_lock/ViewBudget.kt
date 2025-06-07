@@ -1,6 +1,8 @@
 package com.fake.money_lock
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.lifecycle.ViewModelProvider
@@ -17,6 +19,7 @@ class ViewBudget : ComponentActivity() {
         val tvBudgetGoal = findViewById<TextView>(R.id.tvBudgetGoal)
         val tvBudgetSpent = findViewById<TextView>(R.id.tvBudgetSpent)
         val tvBudgetRemaining = findViewById<TextView>(R.id.tvBudgetRemaining)
+        val btnAdjustBudget = findViewById<Button>(R.id.btnAdjustBudget)
 
         // Replace with real values or pass via Intent
         val userId = 1
@@ -39,5 +42,12 @@ class ViewBudget : ComponentActivity() {
                 tvBudgetRemaining.text = ""
             }
         }
+        btnAdjustBudget.setOnClickListener {
+            val intent = Intent(this, BudgetGoals::class.java)
+            intent.putExtra("userId", userId)
+            intent.putExtra("month", month)
+            startActivity(intent)
+        }
     }
+
 }
