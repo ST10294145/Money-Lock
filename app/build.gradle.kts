@@ -3,6 +3,9 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("org.jetbrains.kotlin.kapt")
     id("org.jetbrains.kotlin.plugin.compose")
+    // Google services Gradle plugin
+    id("com.google.gms.google-services")
+
 }
 
 android {
@@ -93,5 +96,18 @@ dependencies {
 
     //Graph dependancies
     implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")
+
+    // Import the Firebase BoM
+    implementation(platform("com.google.firebase:firebase-bom:33.15.0"))
+
+    // Firebase Core (always needed)
+    implementation (platform("com.google.firebase:firebase-analytics:21.6.1"))
+
+    // For Firebase Firestore (for storing analytics data)
+    implementation (platform("com.google.firebase:firebase-firestore-ktx:24.11.0"))
+
+    // OR Firebase Realtime Database (alternate option)
+    implementation (platform("com.google.firebase:firebase-database-ktx:20.3.0'"))
+
 
 }
