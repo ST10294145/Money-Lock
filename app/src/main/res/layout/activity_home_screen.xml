@@ -78,6 +78,15 @@
             android:backgroundTint="#FF9800"
             android:layout_marginBottom="16dp" />
 
+        <Button
+            android:id="@+id/btnRewards"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="View Reward"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#70EEF1"
+            android:layout_marginBottom="16dp" />
+
         <!-- New Account Settings Button -->
         <Button
             android:id="@+id/btnAccountSettings"

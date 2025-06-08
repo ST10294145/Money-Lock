@@ -70,5 +70,12 @@ class HomeScreen : ComponentActivity() {
             val intent = Intent(this, AnalyticsActivity::class.java)
             startActivity(intent)
         }
+
+        // View Reward button
+        val viewRewardsButton = findViewById<Button>(R.id.btnRewards)
+        viewRewardsButton.setOnClickListener {
+            val intent = Intent(this, RewardsActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
