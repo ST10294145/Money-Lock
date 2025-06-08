@@ -6,10 +6,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.github.mikephil.charting.charts.BarChart
+import com.google.firebase.FirebaseApp
 
 class AnalyticsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        FirebaseApp.initializeApp(this)
         enableEdgeToEdge()
         setContentView(R.layout.activity_analytics)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.analyticsLayout)) { v, insets ->
