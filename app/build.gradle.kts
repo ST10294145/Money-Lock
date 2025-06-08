@@ -66,6 +66,7 @@ dependencies {
     implementation("androidx.compose.material3:material3")
     implementation(libs.androidx.activity)
     implementation(libs.firebase.common.ktx)
+    implementation(libs.firebase.firestore)
     androidTestImplementation(platform("androidx.compose:compose-bom:2024.04.01"))
 
     // Room Database
@@ -105,10 +106,8 @@ dependencies {
     implementation (platform("com.google.firebase:firebase-analytics:21.6.1"))
 
     // For Firebase Firestore (for storing analytics data)
-    implementation (platform("com.google.firebase:firebase-firestore-ktx:24.11.0"))
+    implementation (platform("com.google.firebase:firebase-firestore:25.1.4"))
 
-    // OR Firebase Realtime Database (alternate option)
-    implementation (platform("com.google.firebase:firebase-database-ktx:20.3.0'"))
 
 
 }
