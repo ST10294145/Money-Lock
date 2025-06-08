@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "669611995786",
+    "project_id": "moneylockanalytics",
+    "storage_bucket": "moneylockanalytics.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:669611995786:android:76fe05c752a9e6cd4cb373",
+        "android_client_info": {
+          "package_name": "com.fake.money_lock"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNPQpoep00ydiuMclDEifGaShVxsHHrq4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
