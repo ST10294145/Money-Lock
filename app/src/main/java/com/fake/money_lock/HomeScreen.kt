@@ -63,5 +63,12 @@ class HomeScreen : ComponentActivity() {
             val intent = Intent(this, ViewBudget::class.java) // <-- FIXED
             startActivity(intent)
         }
+
+        // View Analytics button
+        val viewAnalyticsButton = findViewById<Button>(R.id.btnAnalytics)
+        viewBudgetButton.setOnClickListener {
+            val intent = Intent(this, AnalyticsActivity::class.java) // <-- FIXED
+            startActivity(intent)
+        }
     }
 }

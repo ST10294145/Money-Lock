@@ -69,6 +69,15 @@
             android:backgroundTint="#673AB7"
             android:layout_marginBottom="16dp" />
 
+        <Button
+            android:id="@+id/btnAnalytics"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="View Analytics"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#FF9800"
+            android:layout_marginBottom="16dp" />
+
         <!-- New Account Settings Button -->
         <Button
             android:id="@+id/btnAccountSettings"
