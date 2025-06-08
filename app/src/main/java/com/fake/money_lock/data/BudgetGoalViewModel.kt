@@ -9,10 +9,14 @@ import kotlinx.coroutines.launch
 class BudgetGoalViewModel(application: Application) : AndroidViewModel(application) {
 
     private val budgetGoalDao = UserDatabase.getDatabase(application).budgetGoalDao()
+    private val expenseDao = UserDatabase.getDatabase(application).expenseDao()
 
     // LiveData for a specific user and month (can be exposed from a method)
     fun getGoalForUserAndMonth(userId: Int, month: String): LiveData<BudgetGoalEntity?> {
         return budgetGoalDao.getGoalForUserAndMonth(userId, month)
+    }
+    fun getExpensesForUser(userId: Int): LiveData<List<Expense>> {
+        return expenseDao.getExpensesForUser(userId)
     }
 
     // Insert or update a goal
