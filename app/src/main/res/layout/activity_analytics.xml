@@ -26,8 +26,9 @@
     android:layout_width="match_parent"
     android:layout_height="300dp"
     android:layout_marginBottom="16dp"
-    android:background="#263238"
-    app:chart_descriptionEnabled="false"/>
+    android:background="#263238"/>
+    <!--app:chart_descriptionEnabled="false"-->
+
 
 <!-- Max/Min Goal -->
 <TextView
