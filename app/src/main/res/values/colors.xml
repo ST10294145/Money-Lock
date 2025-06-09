@@ -7,4 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <array name="konfetti_colors">
+        <item>#FFD700</item> <!-- Gold -->
+        <item>#FF69B4</item> <!-- Pink -->
+        <item>#1E90FF</item> <!-- Blue -->
+        <item>#32CD32</item> <!-- Green -->
+    </array>
 </resources>

@@ -11,6 +11,13 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import com.fake.money_lock.data.BudgetGoalViewModel
+import nl.dionsegijn.konfetti.xml.KonfettiView
+import nl.dionsegijn.konfetti.core.Party
+import nl.dionsegijn.konfetti.core.emitter.Emitter
+import nl.dionsegijn.konfetti.core.Position
+import android.graphics.Color
+import java.util.concurrent.TimeUnit
+
 
 
 class RewardsActivity : AppCompatActivity() {
@@ -21,6 +28,22 @@ class RewardsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rewards)
+
+        val konfettiView = findViewById<KonfettiView>(R.id.konfettiView)
+
+        konfettiView.start(
+            Party(
+                angle = 270,
+                spread = 360,
+                speed = 10f,
+                maxSpeed = 30f,
+                damping = 0.9f,
+                colors = listOf(Color.YELLOW, Color.GREEN, Color.MAGENTA),
+                emitter = Emitter(duration = 2, TimeUnit.SECONDS).perSecond(100),
+                position = Position.Relative(0.5, 0.0),
+            )
+        )
+
 
         val imgTrophy = findViewById<ImageView>(R.id.imgTrophy)
         val tvCongrats = findViewById<TextView>(R.id.tvCongrats)

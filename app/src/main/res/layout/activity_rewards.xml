@@ -8,6 +8,13 @@
     android:orientation="vertical"
     android:background="@color/white">
 
+    <nl.dionsegijn.konfetti.xml.KonfettiView
+        android:id="@+id/konfettiView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:visibility="gone"
+        />
+
     <ImageView
         android:id="@+id/imgTrophy"
         android:layout_width="150dp"

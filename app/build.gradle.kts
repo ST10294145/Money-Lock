@@ -96,8 +96,11 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
-    //Graph dependancies
+    //Graph dependencies
     implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")
+
+    //Confetti dependencies
+    implementation ("nl.dionsegijn:konfetti-xml:2.0.2")
 
     // Import the Firebase BoM
     implementation(platform("com.google.firebase:firebase-bom:33.15.0"))
