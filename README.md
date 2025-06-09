@@ -4,7 +4,7 @@
 
 ## Overview 📝
 
-This project is a user-friendly personal budget tracker app designed to help users manage their spending habits and savings goals. The app incorporates gamification elements to make budgeting fun and engaging. 🎮✨
+This project is a user-friendly personal budget tracker app designed to help users manage their spending habits and savings goals.
 
 ## Features 🌟
 
@@ -19,6 +19,10 @@ This project is a user-friendly personal budget tracker app designed to help use
 * **Progress Dashboard**: Monitor budget goals with visual indicators for overspending (final PoE only). 📊
 * **Gamification**: Earn rewards or badges for meeting budget goals or consistent logging (final PoE only). 🏆
 * **Multi-device Access**: Store data in an online database for access across multiple devices (final PoE only). 🌐
+
+## Own Features
+* **Rewards Page**: A page that gives the user rewards for if they stay within the budget.
+* **Account Settings**: Gives the user more options for their account. 
 
 ## Installation ⚙️
 
