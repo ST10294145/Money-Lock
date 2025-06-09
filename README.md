@@ -17,7 +17,6 @@ This project is a user-friendly personal budget tracker app designed to help use
 * **Data Persistence**: Save data to a local database for offline access. 💾
 * **Spending Graphs**: View graphs showing daily spending trends over a user-selectable period (final PoE only). 📈
 * **Progress Dashboard**: Monitor budget goals with visual indicators for overspending (final PoE only). 📊
-* **Gamification**: Earn rewards or badges for meeting budget goals or consistent logging (final PoE only). 🏆
 * **Multi-device Access**: Store data in an online database for access across multiple devices (final PoE only). 🌐
 
 ## Own Features
