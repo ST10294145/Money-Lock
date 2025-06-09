@@ -49,7 +49,7 @@ This project is a user-friendly personal budget tracker app designed to help use
 
 ## Video Demonstration 🎥
 
-Watch the [video showcasing all features of the app](https://youtu.be/mxKBChgrhw0?si=sxZd2cD6TIUX3Cpl). 📺
+Watch the [video showcasing all features of the app](https://youtu.be/EY3mKlJs6hY?si=AJZIDJey-mhvE0M5). 📺
 
 ## Contribution 🤝
 
